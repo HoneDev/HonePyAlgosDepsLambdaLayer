@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  SAM Template for publishing HonePyAlgosDeps Layer publicly.
+
+Resources:
+  HonePyAlgosDepsLambdaLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: HonePyAlgosDeps
+      Description: Base dependencies for Hone Py Algos (spectral processing library)
+      ContentUri: 's3://hone-public-main/artifacts/aws/lambda/layers/HonePyAlgosDepsLambdaLayer/HonePyAlgosDepsLambdaLayer-v1.zip'
+      CompatibleRuntimes:
+        - python3.12
+        - python3.11
+      RetentionPolicy: Retain
+      CompatibleArchitectures:
+        - x86_64
+
+Outputs:
+  LayerVersion:
+    Description: Layer ARN Reference
+    Value: !Ref HonePyAlgosDepsLambdaLayer
+
+
+Metadata:
+  AWS::ServerlessRepo::Application:
+    Name: HonePyAlgosDepsLambdaLayer
+    Description: >
+      Base dependencies for Hone Py Algos (spectral processing library)
+    Author: Hone Ag
+    Labels: ['layer', 'image', 'lambda', 'hone-py-algos']
+    SemanticVersion: 1.0.0
+    SpdxLicenseId: Apache-2.0
+    LicenseUrl: 's3://hone-public-main/artifacts/aws/lambda/layers/HonePyAlgosDepsLambdaLayer/LICENSE.txt'
+    ReadmeUrl: 's3://hone-public-main/artifacts/aws/lambda/layers/HonePyAlgosDepsLambdaLayer/README.md'

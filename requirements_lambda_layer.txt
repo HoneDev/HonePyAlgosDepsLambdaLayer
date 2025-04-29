@@ -1,0 +1,11 @@
+pandas==2.2.3
+numpy==2.2.4
+boto3==1.37.31
+pydantic ==2.11.3
+tqdm==4.67.1
+scipy==1.15.2
+orjson==3.10.16
+anytree==2.13.0
+scikit-learn==1.6.1
+boto3-type-annotations==0.3.1
+typeguard==4.4.2
